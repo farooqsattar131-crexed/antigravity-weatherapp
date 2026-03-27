@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-height: 100vh;
+}
+
+/* --- Weather Background Effects --- */
+
+.weather-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Stars */
+.effect-stars {
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+    radial-gradient(2px 2px at 100px 150px, #fff, transparent),
+    radial-gradient(3px 3px at 250px 80px, #fff, transparent),
+    radial-gradient(2px 2px at 350px 200px, #fff, transparent),
+    radial-gradient(2px 2px at 450px 50px, #fff, transparent),
+    radial-gradient(2px 2px at 550px 250px, #fff, transparent);
+  background-size: 600px 300px;
+  animation: twinkle 5s linear infinite alternate;
+  opacity: 0.6;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.4; }
+  100% { opacity: 0.8; }
+}
+
+/* Rain */
+@keyframes rainfall {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 20% 100%; }
+}
+
+.effect-rain {
+  background-image: repeating-linear-gradient(105deg, transparent, transparent 10px, rgba(255,255,255,0.1) 11px, transparent 12px);
+  background-size: 200px 200px;
+  animation: rainfall 0.6s linear infinite;
+}
+
+/* Snow */
+@keyframes snowfall {
+  0% { background-position: 0px 0px, 0px 0px, 0px 0px; }
+  100% { background-position: 500px 1000px, 400px 400px, 300px 300px; }
+}
+
+.effect-snow {
+  background-image: 
+    radial-gradient(4px 4px at 100px 50px, #fff, transparent), 
+    radial-gradient(6px 6px at 200px 150px, #fff, transparent), 
+    radial-gradient(3px 3px at 300px 250px, #fff, transparent);
+  background-size: 500px 500px, 400px 400px, 300px 300px;
+  animation: snowfall 10s linear infinite;
+  opacity: 0.8;
+}
+
+/* Clouds */
+@keyframes cloudsMove {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 400px 0px; }
+}
+
+.effect-clouds, .effect-clouds-night {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.3), transparent 30%),
+    radial-gradient(circle at 80% 60%, rgba(255,255,255,0.2), transparent 40%);
+  background-size: 1000px 1000px;
+  animation: cloudsMove 30s linear infinite;
+  opacity: 0.6;
+}
+
+.effect-clouds-night {
+  opacity: 0.15;
+}
+
+/* Fog */
+.effect-fog {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.effect-sun {
+  background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.4), transparent 50%);
+}
